@@ -31,9 +31,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudentById(long id) {
-        Optional<Student> author = studentRepository.findById(id);
-        if (author.isPresent()) {
-            return author.get();
+        Optional<Student> student = studentRepository.findById(id);
+        if (student.isPresent()) {
+            return student.get();
         } else {
             throw new ResourceNotFoundException("Id", "Student", id);
         }
@@ -41,8 +41,14 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student updateStudent(Student student, long id) {
-        return null;
+        Student existingStudent = studentRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Student", "ID", id)
+        );
+        existingStudent.setName(student.getName());
+        existingStudent.setGroup(student.getGroup());
+        existingStudent.setAverageMark(student.getAverageMark());
+        studentRepository.save(existingStudent);
+        return existingStudent;
     }
-
-
 }
+
