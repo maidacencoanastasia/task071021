@@ -12,12 +12,12 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name_s", nullable = false)
     private String name;
 
-    @Column(name = "group", nullable = false)
+    @Column(name = "groupa", nullable = false)
     private String group;
 
-    @Column(name = "averageMark")
-    private double averageMark;
+    @Column(name = "average_of_Marks")
+    private float averageMark;
 }
