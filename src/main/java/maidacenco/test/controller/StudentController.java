@@ -22,5 +22,6 @@ public class StudentController {
     public ResponseEntity<Student> saveStudent(@RequestBody Student student){
         return new ResponseEntity<>(studentService.saveStudent(student), HttpStatus.CREATED);
     }
+// get REST API
 
 }
