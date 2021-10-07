@@ -35,4 +35,16 @@ public class StudentController {
     public ResponseEntity<Student> getStudentById(@PathVariable("id") long studentId) {
         return new ResponseEntity<Student>(studentService.getStudentById(studentId), HttpStatus.OK);
     }
+    // update REST API
+    @PutMapping("{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable("id") long studentId, @RequestBody Student student) {
+        return new ResponseEntity<Student>(studentService.updateStudent(student, studentId), HttpStatus.OK);
+    }
+
+    // delete REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable("id") long studentId) {
+        studentService.deleteStudent(studentId);
+        return new ResponseEntity<String>("Student Successfully delete", HttpStatus.OK);
+    }
 }
