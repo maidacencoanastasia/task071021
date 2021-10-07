@@ -18,6 +18,6 @@ public class Student {
     @Column(name = "groupa", nullable = false)
     private String group;
 
-    @Column(name = "average_of_Marks")
+    @Column(name = "average_of_Marks", nullable = true)
     private float averageMark;
 }
