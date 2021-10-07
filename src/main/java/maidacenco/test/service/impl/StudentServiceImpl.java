@@ -39,7 +39,10 @@ public class StudentServiceImpl implements StudentService {
         }
     }
 
-
+    @Override
+    public Student updateStudent(Student student, long id) {
+        return null;
+    }
 
 
 }
